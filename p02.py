@@ -1,7 +1,6 @@
 #
 import os
 
-
 def log(text):
     print(text)
 
@@ -9,35 +8,37 @@ def log(text):
 # __file__
 # os.path.basename()
 dataFile = os.getcwd()+"\\p02-input.txt"
-items = []
+
 f = open(dataFile, "r")
-for x in f:
-    items.append(x)
-f.close()
 
 x_pos = 0
 y_depth = 0
-for i, item in enumerate(items):
-    if (item.startswith("forward")):
-        x_pos = x_pos + int(item[7:])
-    elif (item.startswith("down")):
-        y_depth = y_depth + int(item[4:])
-    elif (item.startswith("up")):
-        y_depth = y_depth - int(item[2:])
-
+for line in f:
+    items = line.split()
+    if (items[0] == "forward"):
+        x_pos = x_pos + int(items[1])
+    elif (items[0] == "down"):
+        y_depth = y_depth + int(items[1])
+    elif (items[0] == "up"):
+        y_depth = y_depth - int(items[1])
 log("x_pos={}; depth={}; prod={}".format(x_pos, y_depth, x_pos*y_depth))
+#x_pos=2073; depth=850; prod=1762050
 
 # Part 2
 x_pos = 0
 y_depth = 0
-z_aim=0
-for i, item in enumerate(items):
-    if (item.startswith("forward")):
-        x_pos = x_pos + int(item[7:])
-        y_depth=y_depth+z_aim*int(item[7:])
-    elif (item.startswith("down")):
-        z_aim = z_aim + int(item[4:])
-    elif (item.startswith("up")):
-        z_aim = z_aim - int(item[2:])
-
+z_aim = 0
+f.seek(0)
+for line in f:
+    items = line.split()
+    if (items[0] == "forward"):
+        x_pos = x_pos + int(items[1])
+        y_depth = y_depth+z_aim*int(items[1])
+    elif (items[0] == "down"):
+        z_aim = z_aim + int(items[1])
+    elif (items[0] == "up"):
+        z_aim = z_aim - int(items[1])
 log("x_pos={}; depth={}; prod={}".format(x_pos, y_depth, x_pos*y_depth))
+#x_pos=2073; depth=895269; prod=1855892637
+
+f.close()
