@@ -22,7 +22,7 @@ for line in f:
     elif (items[0] == "up"):
         y_depth = y_depth - int(items[1])
 log("x_pos={}; depth={}; prod={}".format(x_pos, y_depth, x_pos*y_depth))
-#x_pos=2073; depth=850; prod=1762050
+# Expected : 1762050
 
 # Part 2
 x_pos = 0
@@ -39,6 +39,6 @@ for line in f:
     elif (items[0] == "up"):
         z_aim = z_aim - int(items[1])
 log("x_pos={}; depth={}; prod={}".format(x_pos, y_depth, x_pos*y_depth))
-#x_pos=2073; depth=895269; prod=1855892637
+# Expected : 1855892637
 
 f.close()
