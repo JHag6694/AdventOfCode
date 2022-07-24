@@ -4,7 +4,7 @@ import os
 def log(text):
     print(text)
 
-dataFile = os.getcwd()+"\\aoc2021-01.txt"
+dataFile = os.getcwd()+"\\p01-input.txt"
 items = []
 f = open(dataFile, "r")
 for x in f:
