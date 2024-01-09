@@ -14,7 +14,7 @@ with open(file_path, "r") as file:
             items.append(0)
         else:
             items.append(int(line.strip()))
-items.append(0)
+items.append(0) # Add an extra 0 for easier processing ...
 
 # Stage 1 :
 curCalInd = 1
@@ -22,26 +22,27 @@ curCal = 0
 maxCalInd = 0
 maxCal = 0
 for i in range(0 + 1, len(items)):
-    if items[i] == 0:
+    if items[i] != 0:
+        curCal += items[i]
+    else:
         log("CalInd : {}, Cal : {}".format(curCalInd, curCal))
         if curCal > maxCal:
             maxCal = curCal
             maxCalInd = curCalInd
         curCalInd += 1
         curCal = 0
-    else:
-        curCal += items[i]
+
 log("CalInd : {}, Cal : {}".format(maxCalInd, maxCal))
 
 # Stage 2 :
 allCals = []
 curCal = 0
 for i in range(0 + 1, len(items)):
-    if items[i] == 0:
+    if items[i] != 0:
+        curCal += items[i]
+    else:
         allCals.append(curCal)
         curCal = 0
-    else:
-        curCal += items[i]
 
 max3cals = 0
 for i in range(0, 3):
