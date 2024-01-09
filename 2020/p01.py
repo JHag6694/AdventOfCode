@@ -6,7 +6,7 @@ def log(text):
     print(text)
 
 
-dataFile = os.getcwd()+"\\2020\\p01-input .txt"
+dataFile = os.getcwd()+"\\2020\\p01-input.txt"
 items = []
 f = open(dataFile, "r")
 for x in f:

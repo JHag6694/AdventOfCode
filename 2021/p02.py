@@ -7,7 +7,7 @@ def log(text):
 
 # __file__
 # os.path.basename()
-dataFile = os.getcwd()+"\\p02-input.txt"
+dataFile = os.getcwd()+"\\2021\\p02-input.txt"
 
 f = open(dataFile, "r")
 

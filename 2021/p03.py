@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.INFO,
      datefmt='%H:%M:%S'
 )
 
-dataFile = os.getcwd()+"\\p03-input.txt"
+dataFile = os.getcwd()+"\\2021\\p03-input.txt"
 items = []
 f = open(dataFile, "r")
 for x in f:
